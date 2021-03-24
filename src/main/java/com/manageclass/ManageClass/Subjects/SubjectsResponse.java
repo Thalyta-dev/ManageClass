@@ -20,9 +20,8 @@ public class SubjectsResponse {
 
     public SubjectsResponse(Subjects subjects){
 
-        this.setCod(subjects.getCod());
-        this.setName(subjects.getName());
-        this.setTeacher(subjects.getTeacher());
+        this.cod = subjects.getCod();
+        this.name = subjects.getName();
 
     }
 

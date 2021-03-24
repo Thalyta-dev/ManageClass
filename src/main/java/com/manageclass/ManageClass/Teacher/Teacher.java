@@ -15,10 +15,10 @@ import java.util.List;
 @Entity
 public class Teacher{
     @Id
-    private long matricula;
+    private Long matricula;
 
     @Column(nullable = false)
-    private String fistName;
+    private String firstName;
 
     @Column(nullable = false)
     private String lastName;
