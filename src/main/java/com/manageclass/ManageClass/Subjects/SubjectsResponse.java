@@ -16,8 +16,6 @@ public class SubjectsResponse {
 
     private String name;
 
-    private Teacher teacher;
-
     public SubjectsResponse(Subjects subjects){
 
         this.cod = subjects.getCod();

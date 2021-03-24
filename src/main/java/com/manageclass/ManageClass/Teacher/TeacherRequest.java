@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -36,6 +37,8 @@ public class TeacherRequest {
     @NotNull
     @EmailUfv
     private String email;
+
+    private List<Subjects> subjects;
 
     public  Teacher  toModel(){
 

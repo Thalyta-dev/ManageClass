@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -26,6 +27,6 @@ public class Subjects {
     private Teacher teacher;
 
     @ManyToMany
-    private List<Student>  student;
+    private List<Student>  student = new ArrayList<>();
 
 }

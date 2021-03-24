@@ -2,6 +2,7 @@ package com.manageclass.ManageClass.Student;
 
 import com.manageclass.ManageClass.Annotation.EmailUfv;
 import com.manageclass.ManageClass.Annotation.ExistCpf;
+import com.manageclass.ManageClass.Subjects.Subjects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -34,6 +36,8 @@ public class StudentRequest {
     @Email
     @EmailUfv
     private String email;
+
+    private List<Subjects> subjects;
 
 
     public Student toModel(){

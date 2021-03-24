@@ -1,6 +1,7 @@
 package com.manageclass.ManageClass.Student;
 
 import com.manageclass.ManageClass.Exception.ExceptionNoFound;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,7 @@ public class StudentControler {
         Student  student = repository.findById(matricula).orElseThrow(()-> new ExceptionNoFound(matricula, "Student"));
         return new StudentResponse(student);
     }
+
 
 
 
