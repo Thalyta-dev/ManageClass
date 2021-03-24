@@ -1,5 +1,7 @@
 package com.manageclass.ManageClass.Student;
 
+import com.manageclass.ManageClass.Annotation.EmailUfv;
+import com.manageclass.ManageClass.Annotation.ExistCpf;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +27,12 @@ public class StudentRequest {
 
     @NotEmpty
     @CPF
+    @ExistCpf
     private String cpf;
 
     @NotEmpty
     @Email
+    @EmailUfv
     private String email;
 
 

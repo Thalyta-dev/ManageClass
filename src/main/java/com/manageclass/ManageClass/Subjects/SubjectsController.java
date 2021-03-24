@@ -1,5 +1,6 @@
 package com.manageclass.ManageClass.Subjects;
 
+import com.manageclass.ManageClass.Exception.ExceptionNoFound;
 import com.manageclass.ManageClass.Student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,14 @@ public class SubjectsController {
     public SubjectsResponse createSubejects(@Valid @RequestBody SubjectsRequest subjectsRequest){
 
         Subjects subjects = this.repository.save(subjectsRequest.toModel());
+        return new SubjectsResponse(subjects);
+
+    }
+
+    @GetMapping("/{cod}")
+    @ResponseStatus(HttpStatus.OK)
+    public SubjectsResponse findSubjects(@PathVariable Long cod) throws ExceptionNoFound {
+        Subjects subjects = this.repository.findById(cod).orElseThrow(() -> new ExceptionNoFound(cod,"Subjects"));
         return new SubjectsResponse(subjects);
 
     }

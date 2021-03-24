@@ -1,8 +1,8 @@
 package com.manageclass.ManageClass.Student;
 
+import com.manageclass.ManageClass.Exception.ExceptionNoFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -27,6 +27,15 @@ public class StudentControler {
         return new StudentResponse(saveStudent);
 
     }
+
+    @GetMapping("/{matricula}")
+    @ResponseStatus(HttpStatus.OK)
+    public StudentResponse getStudent( @PathVariable Long matricula) throws ExceptionNoFound {
+
+        Student  student = repository.findById(matricula).orElseThrow(()-> new ExceptionNoFound(matricula, "Student"));
+        return new StudentResponse(student);
+    }
+
 
 
 

@@ -1,5 +1,7 @@
 package com.manageclass.ManageClass.Teacher;
 
+import com.manageclass.ManageClass.Annotation.EmailUfv;
+import com.manageclass.ManageClass.Annotation.ExistCpf;
 import com.manageclass.ManageClass.Subjects.Subjects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,10 +29,12 @@ public class TeacherRequest {
 
     @NotNull
     @CPF
+    @ExistCpf
     private String cpf;
 
     @Email
     @NotNull
+    @EmailUfv
     private String email;
 
     public  Teacher  toModel(){
