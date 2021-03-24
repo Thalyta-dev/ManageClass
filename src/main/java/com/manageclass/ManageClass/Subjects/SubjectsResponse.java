@@ -1,31 +1,29 @@
 package com.manageclass.ManageClass.Subjects;
 
-import com.manageclass.ManageClass.Student.Student;
 import com.manageclass.ManageClass.Teacher.Teacher;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 
-import javax.persistence.*;
-import java.util.List;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subjects {
+public class SubjectsResponse {
 
-    @Id
     private Long cod;
 
     private String name;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
     private Teacher teacher;
 
-    @ManyToMany
-    private List<Student>  student;
+    public SubjectsResponse(Subjects subjects){
+
+        this.setCod(subjects.getCod());
+        this.setName(subjects.getName());
+        this.setTeacher(subjects.getTeacher());
+
+    }
 
 }
