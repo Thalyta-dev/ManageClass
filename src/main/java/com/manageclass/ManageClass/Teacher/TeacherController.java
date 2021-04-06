@@ -27,10 +27,10 @@ public class TeacherController {
         return new TeacherResponse(saveTeacher);
     }
 
-    @GetMapping("/{matricula}")
+    @GetMapping("/{matriculaTeacher}")
     @ResponseStatus(HttpStatus.OK)
-    public TeacherResponse findTeacher(@PathVariable Long matricula) throws ExceptionNoFound {
-        Teacher teacher = this.repository.findById(matricula).orElseThrow(() -> new ExceptionNoFound(matricula, "Teacher"));
+    public TeacherResponse findTeacher(@PathVariable Long matriculaTeacher) throws ExceptionNoFound {
+        Teacher teacher = this.repository.findById(matriculaTeacher).orElseThrow(() -> new ExceptionNoFound(matriculaTeacher, "Teacher"));
         return new TeacherResponse(teacher);
     }
 

@@ -17,9 +17,11 @@ import java.util.stream.Collectors;
 public class SubjectsResponseAll extends  SubjectsResponse{
 
     private List<StudentResponse> studentResponseList;
+    private TeacherResponse teacherResponse;
 
     public SubjectsResponseAll(Subjects subjects){
         super(subjects);
         this.studentResponseList = subjects.getStudent().stream().map(StudentResponse::new).collect(Collectors.toList());
+        this.teacherResponse =  new TeacherResponse(subjects.getTeacher());
     }
 }

@@ -14,8 +14,8 @@ public class EmailUfvValidator implements ConstraintValidator<EmailUfv,String> {
     }
 
     @Override
-    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
 
-        return s.substring(s.indexOf("@")+1).equals("ufv.br");
+        return email.substring(email.indexOf("@")+1).equals("ufv.br");
     }
 }

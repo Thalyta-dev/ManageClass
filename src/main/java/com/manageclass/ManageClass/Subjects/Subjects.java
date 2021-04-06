@@ -2,6 +2,7 @@ package com.manageclass.ManageClass.Subjects;
 
 import com.manageclass.ManageClass.Student.Student;
 import com.manageclass.ManageClass.Teacher.Teacher;
+import com.manageclass.ManageClass.Teacher.TeacherResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,6 @@ public class Subjects {
 
     @ManyToMany
     private List<Student>  student = new ArrayList<>();
+
 
 }
