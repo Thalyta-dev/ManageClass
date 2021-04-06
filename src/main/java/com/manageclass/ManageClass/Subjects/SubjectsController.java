@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Subjects")
@@ -72,6 +74,11 @@ public class SubjectsController {
 
         return new SubjectsResponseAll(subjects);
 
+    }
+
+    @GetMapping
+    public List<SubjectsResponse> getAllSubjects(){
+        return  subjectsRepository.findAll().stream().map(SubjectsResponse::new).collect(Collectors.toList());
     }
 
 

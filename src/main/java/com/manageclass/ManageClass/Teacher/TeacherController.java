@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Teacher")
@@ -33,5 +35,8 @@ public class TeacherController {
         Teacher teacher = this.repository.findById(matriculaTeacher).orElseThrow(() -> new ExceptionNoFound(matriculaTeacher, "Teacher"));
         return new TeacherResponse(teacher);
     }
-
+    @GetMapping
+    public List<TeacherResponse> findAllTeacher(){
+        return this.repository.findAll().stream().map(TeacherResponse::new).collect(Collectors.toList());
+    }
 }
